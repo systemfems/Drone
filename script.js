@@ -1,70 +1,113 @@
-// ----------------------------
-// KONFIGURASI
-// ----------------------------
-// GANTIKAN DENGAN URL APPS SCRIPT BARU ANDA DARI LANGKAH 2
-// Pastikan anda menggunakan URL deployment (berakhir dengan /exec)
+// ✅ Gantikan URL ini dengan URL Web App Apps Script anda
 const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyOGPiCYenVtbDL0LX6BMUd3pmRKid4PveJbe5vaj1fzGsMYNtgr9WkgZLhPkHHXXspjA/exec";
 
-// ----------------------------
-// FUNGSI UTAMA
-// ----------------------------
-document.addEventListener('DOMContentLoaded', ( ) => {
+document.addEventListener('DOMContentLoaded', () => {
+
   const bookingForm = document.getElementById('booking-form');
   const messageEl = document.getElementById('booking-message');
   const submitBtn = bookingForm.querySelector('.submit-btn');
 
-  // Fungsi untuk memaparkan mesej
   function setMessage(msg, isError = false) {
     messageEl.textContent = msg;
-    messageEl.className = `mt-3 text-center text-sm font-bold ${isError ? 'text-red-400' : 'text-green-400'}`;
+    messageEl.className =
+      `mt-3 text-center text-sm font-bold ${isError ? 'text-red-400' : 'text-green-400'}`;
   }
 
-  // Apabila borang dihantar...
+  // ✅ Hantar Borang
   bookingForm.addEventListener('submit', async (e) => {
-    e.preventDefault(); // Halang borang dari refresh halaman
-
-    // Tukar teks butang dan paparkan mesej menunggu
+    e.preventDefault();
     submitBtn.textContent = 'Menghantar...';
     submitBtn.disabled = true;
     setMessage('Sila tunggu, menghantar data...');
 
-    // Dapatkan semua data dari borang
     const formData = new FormData(bookingForm);
     const data = Object.fromEntries(formData.entries());
 
     try {
-      // Hantar data ke Apps Script
       const response = await fetch(APPS_SCRIPT_URL, {
-        // Mesti guna 'POST' (bukan 'doPOST')
-        method: 'POST', 
-        // 🔑 PENYELESAIAN CORS: Guna text/plain untuk mengelakkan preflight request
-        headers: { 'Content-Type': 'text/plain;charset=utf-8' }, 
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
         body: JSON.stringify(data),
-        redirect: 'follow' 
       });
 
-      // Semak sama ada respons itu berjaya (cth: status 200)
-      if (!response.ok) {
-          throw new Error(`Ralat HTTP: ${response.status} ${response.statusText}`);
-      }
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
 
       const result = await response.json();
 
-      // Semak hasil yang diterima dari Apps Script
       if (result.status === 'success') {
-        setMessage('✅ ' + result.message); // Papar mesej kejayaan
-        bookingForm.reset(); // Kosongkan borang
+        setMessage('✅ ' + result.message);
+        bookingForm.reset();
       } else {
-        // Jika Apps Script mengembalikan status 'error'
-        throw new Error(result.message); 
+        throw new Error(result.message);
       }
+
     } catch (err) {
-      // Tangkap sebarang ralat (cth: 'Failed to fetch' atau ralat dari Apps Script)
-      setMessage(`❌ Ralat: ${err.message}`, true);
+      setMessage('❌ ' + err.message, true);
+
     } finally {
-      // Kembalikan butang kepada keadaan asal
       submitBtn.textContent = 'HANTAR REKOD PINJAMAN';
       submitBtn.disabled = false;
     }
   });
+
+
+  // ✅ SWITCH TAB
+  const tabBooking = document.getElementById('tab-booking');
+  const tabStatus = document.getElementById('tab-status');
+  const contentBooking = document.getElementById('tab-booking-content');
+  const contentStatus = document.getElementById('tab-status-content');
+
+  function switchTab(page) {
+    if (page === 'booking') {
+      contentBooking.classList.add('active');
+      contentStatus.classList.remove('active');
+    } else {
+      contentStatus.classList.add('active');
+      contentBooking.classList.remove('active');
+      loadStatus();
+    }
+  }
+
+  tabBooking.addEventListener('click', () => switchTab('booking'));
+  tabStatus.addEventListener('click', () => switchTab('status'));
+
+  // ✅ LOAD STATUS FROM GOOGLE SHEET
+  async function loadStatus() {
+    const container = document.getElementById('status-container');
+    container.innerHTML = `<p class="text-gray-300">Memuatkan...</p>`;
+
+    try {
+      const response = await fetch(APPS_SCRIPT_URL);
+      const result = await response.json();
+
+      if (!result.data || result.data.length === 0) {
+        container.innerHTML = `<p class="text-gray-300 text-center">Tiada rekod pinjaman.</p>`;
+        return;
+      }
+
+      container.innerHTML = "";
+
+      result.data.forEach(item => {
+        const card = document.createElement('div');
+        card.className = "drone-card";
+
+        card.innerHTML = `
+          <h3 class="text-xl font-bold">${item.NamaPeminjam}</h3>
+          <p class="text-gray-300 text-sm">Drone: <span class="font-semibold">${item.DroneID}</span></p>
+          <p class="text-gray-300 text-sm">Lokasi: ${item.LokasiKerja}</p>
+          <p class="text-gray-300 text-sm">Tujuan: ${item.TujuanMisi}</p>
+          <p class="text-gray-300 text-sm">Destinasi: ${item.Destinasi}</p>
+          <p class="text-gray-300 text-sm">Tarikh: ${item.TarikhAmbil} • Masa: ${item.MasaAmbil}</p>
+          <span class="status-badge status-pending mt-2 inline-block">ON LOAN</span>
+        `;
+
+        container.appendChild(card);
+      });
+
+    } catch (err) {
+      container.innerHTML =
+        `<p class="text-red-400 text-center">Ralat memuat data: ${err.message}</p>`;
+    }
+  }
+
 });
