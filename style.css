@@ -103,6 +103,19 @@
     text-transform: uppercase;
     color: white;
 }
+#status-container {
+    max-height: 600px;
+    overflow-y: auto;
+    padding-right: 8px;
+    scrollbar-width: thin;
+}
+#status-container::-webkit-scrollbar {
+    width: 10px;
+}
+#status-container::-webkit-scrollbar-thumb {
+    background: rgba(1, 255, 221, 0.6);
+    border-radius: 10px;
+}
 .status-pending { background-color: #f59e0b; }
 .status-pulang { background-color: #10b981; }
 .status-rosak { background-color: #ef4444; }
