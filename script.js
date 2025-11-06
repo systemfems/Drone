@@ -93,12 +93,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         card.innerHTML = `
           <h3 class="text-xl font-bold">${item.NamaPeminjam}</h3>
-          <p class="text-gray-300 text-sm">Drone: <span class="font-semibold">${item.DroneModel}</span></p>
-          <p class="text-gray-300 text-sm">Lokasi: ${item.LokasiKerja}</p>
-          <p class="text-gray-300 text-sm">Tujuan: ${item.TujuanMisi}</p>
-          <p class="text-gray-300 text-sm">Destinasi: ${item.Destinasi}</p>
-          <p class="text-gray-300 text-sm">Tarikh: ${item.TarikhAmbil} • Masa: ${item.MasaAmbil}</p>
-          <span class="status-badge status-pending mt-2 inline-block">ON LOAN</span>
+          <p class="text-gray-300 text-sm">Drone Model: <span class="font-semibold">${item.DroneModel}</span></p>
+          <p class="text-gray-300 text-sm">Site (Peminjam): ${item.LokasiKerja}</p>
+          <p class="text-gray-300 text-sm">Tujuan Penerbangan: ${item.TujuanMisi}</p>
+          <p class="text-gray-300 text-sm">Destinasi Penerbangan: ${item.Destinasi}</p>
+          <p class="text-gray-300 text-sm">Tarikh Ambil Drone: ${item.TarikhAmbil} • Masa: ${item.MasaAmbil}</p>
+          <span class="status-badge status-pending mt-2 inline-block">Pinjam</span>
         `;
 
         container.appendChild(card);
