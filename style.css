@@ -20,12 +20,12 @@
     width: 100%;
     margin: auto;
     color: white;
-    background-color: #74747400;
+    background-color: #74747459;
     padding: 30px;
     border-radius: 12px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0);
     backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 192, 1, 0.2);
+    border: 1px solid rgba(0, 0, 0, 0.103);
 }
 
 /* Navigasi */
