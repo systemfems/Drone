@@ -38,6 +38,33 @@
     transition: all 0.2s ease-in-out;
 }
 
+/* Background Tab */
+.nav-btn {
+    background: #74747459;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.308);
+    padding: 10px 20px;
+    color: #fff;
+    margin: 0 5px;
+    border-radius: 8px;
+    font-weight: 700;
+    transition: 0.2s;
+}
+
+.nav-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: #ffc001;
+    color: #ffc001;
+}
+
+/* ✅ tab yang sedang aktif */
+.nav-btn.active {
+    background: #ffc001;
+    color: #000;
+    border-color: #ffc001;
+    box-shadow: 0 0 15px rgba(255, 192, 1, 0.4);
+}
+
 /* Tabs */
 .tab-content { display: none; }
 .tab-content.active { display: block; }
@@ -133,33 +160,6 @@
     border-radius: 6px;
     margin-right: 8px;
     text-transform: uppercase;
-}
-
-/* Background Tab */
-.nav-btn {
-    background: #74747459;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.308);
-    padding: 10px 20px;
-    color: #fff;
-    margin: 0 5px;
-    border-radius: 8px;
-    font-weight: 700;
-    transition: 0.2s;
-}
-
-.nav-btn:hover {
-    background: rgba(255, 255, 255, 0.15);
-    border-color: #ffc001;
-    color: #ffc001;
-}
-
-/* ✅ tab yang sedang aktif */
-.nav-btn.active {
-    background: #ffc001;
-    color: #000;
-    border-color: #ffc001;
-    box-shadow: 0 0 15px rgba(255, 192, 1, 0.4);
 }
 
 .status-pending { background-color: #f59e0b; }
