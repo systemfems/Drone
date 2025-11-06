@@ -2,7 +2,8 @@
 // KONFIGURASI
 // ----------------------------
 // GANTIKAN DENGAN URL APPS SCRIPT BARU ANDA DARI LANGKAH 2
-const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzrNQIjy-_j5yfzS9bo04gb8XutIZM3n3AJqg53GakN4NcEBTldALa0U_V7cx9D0cpz4Q/exec";
+// Pastikan anda menggunakan URL deployment (berakhir dengan /exec)
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyOGPiCYenVtbDL0LX6BMUd3pmRKid4PveJbe5vaj1fzGsMYNtgr9WkgZLhPkHHXXspjA/exec";
 
 // ----------------------------
 // FUNGSI UTAMA
@@ -34,11 +35,18 @@ document.addEventListener('DOMContentLoaded', ( ) => {
     try {
       // Hantar data ke Apps Script
       const response = await fetch(APPS_SCRIPT_URL, {
-        method: 'doPOST',
-        headers: { 'Content-Type': 'application/json' },
+        // Mesti guna 'POST' (bukan 'doPOST')
+        method: 'POST', 
+        // 🔑 PENYELESAIAN CORS: Guna text/plain untuk mengelakkan preflight request
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' }, 
         body: JSON.stringify(data),
-        redirect: 'follow' // <<< TAMBAH BARIS INI
+        redirect: 'follow' 
       });
+
+      // Semak sama ada respons itu berjaya (cth: status 200)
+      if (!response.ok) {
+          throw new Error(`Ralat HTTP: ${response.status} ${response.statusText}`);
+      }
 
       const result = await response.json();
 
@@ -47,7 +55,8 @@ document.addEventListener('DOMContentLoaded', ( ) => {
         setMessage('✅ ' + result.message); // Papar mesej kejayaan
         bookingForm.reset(); // Kosongkan borang
       } else {
-        throw new Error(result.message); // Jika gagal, baling ralat
+        // Jika Apps Script mengembalikan status 'error'
+        throw new Error(result.message); 
       }
     } catch (err) {
       // Tangkap sebarang ralat (cth: 'Failed to fetch' atau ralat dari Apps Script)
