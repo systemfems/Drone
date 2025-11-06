@@ -135,8 +135,9 @@
     text-transform: uppercase;
 }
 
+/* Background Tab */
 .nav-btn {
-    background: rgba(255, 255, 255, 0.08);
+    background: #74747459;
     border: 1px solid rgba(255, 255, 255, 0.2);
     padding: 10px 20px;
     color: #fff;
