@@ -1,5 +1,5 @@
 // ✅ Gantikan URL ini dengan URL Web App Apps Script anda
-const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyyOoMf-UB2xJMDZ5eOxrYIxHkdOydGQNfHG_vnlsqZ_AIA4YBGA39M3U-2VsVeRhBRMw/exec";
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxWTz3fY2LkAR8mzFvn2d25GhaExBFjhLQ2nXLMwv2c-lC6ULt70vwtgS1Zqz4xN-Gl/exec";
 
 document.addEventListener('DOMContentLoaded', () => {
 
