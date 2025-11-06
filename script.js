@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         card.innerHTML = `
           <h3 class="text-xl font-bold">${item.NamaPeminjam}</h3>
-          <p class="text-gray-300 text-sm">Drone: <span class="font-semibold">${item.DroneID}</span></p>
+          <p class="text-gray-300 text-sm">Drone: <span class="font-semibold">${item.DroneModel}</span></p>
           <p class="text-gray-300 text-sm">Lokasi: ${item.LokasiKerja}</p>
           <p class="text-gray-300 text-sm">Tujuan: ${item.TujuanMisi}</p>
           <p class="text-gray-300 text-sm">Destinasi: ${item.Destinasi}</p>
