@@ -2,7 +2,6 @@
 const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxWTz3fY2LkAR8mzFvn2d25GhaExBFjhLQ2nXLMwv2c-lC6ULt70vwtgS1Zqz4xN-Gl/exec";
 
 document.addEventListener('DOMContentLoaded', () => {
-
   const bookingForm = document.getElementById('booking-form');
   const messageEl = document.getElementById('booking-message');
   const submitBtn = bookingForm.querySelector('.submit-btn');
