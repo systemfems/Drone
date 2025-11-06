@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', ( ) => {
     // Tukar teks butang dan paparkan mesej menunggu
     submitBtn.textContent = 'Menghantar...';
     submitBtn.disabled = true;
-    setMessage('Sila tunggu, menghantar data ke Google Sheet...');
+    setMessage('Sila tunggu, menghantar data...');
 
     // Dapatkan semua data dari borang
     const formData = new FormData(bookingForm);
@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', ( ) => {
       setMessage(`❌ Ralat: ${err.message}`, true);
     } finally {
       // Kembalikan butang kepada keadaan asal
-      submitBtn.textContent = 'HANTAR REKOD PINJAMAN KE GOOGLE SHEET';
+      submitBtn.textContent = 'HANTAR REKOD PINJAMAN';
       submitBtn.disabled = false;
     }
   });
