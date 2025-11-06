@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
         card.className = "drone-card";
 
         card.innerHTML = `
-          <h3 class="text-xl font-bold">${item.NamaPeminjam}</h3>
+          <p class="text-xl font-bold"><span class="label-badge">Nama Peminjam:</span>${item.NamaPeminjam}</p>
           <p class="text-gray-300 text-sm"><span class="label-badge">Drone Model:</span> ${item.DroneModel}</p>
           <p class="text-gray-300 text-sm"><span class="label-badge">Site (Peminjam):</span> ${item.LokasiKerja}</p>
           <p class="text-gray-300 text-sm"><span class="label-badge">Tujuan Penerbangan:</span> ${item.TujuanMisi}</p>
