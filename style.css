@@ -28,16 +28,6 @@
     border: 1px solid rgba(0, 0, 0, 0.103);
 }
 
-/* Navigasi */
-.nav-btn {
-    padding: 12px 16px;
-    font-weight: 600;
-    font-size: 1.125rem;
-    border-radius: 0.75rem 0.75rem 0 0;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-}
-
 /* Background Tab */
 .nav-btn {
     background: #74747459;
@@ -46,9 +36,11 @@
     padding: 10px 20px;
     color: #fff;
     margin: 0 5px;
-    border-radius: 8px;
+    border-radius: 0.75rem 0.75rem 0 0;
+    font-size: 1.125rem;
     font-weight: 700;
-    transition: 0.2s;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
 }
 
 .nav-btn:hover {
