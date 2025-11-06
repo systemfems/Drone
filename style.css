@@ -86,12 +86,16 @@
 
 /* Kad Drone */
 .drone-card {
-    background-color: rgba(16, 17, 19, 0.35);
+    background-color: rgba(16,17,19,0.35);
+    border-left: 5px solid var(--primary-color);
     border-radius: 8px;
     padding: 20px;
     backdrop-filter: blur(6px);
-    transition: transform 0.2s, box-shadow 0.2s;
-    border-left: 5px solid var(--primary-color);
+    line-height: 1.4;
+}
+
+.drone-card p {
+    margin-bottom: 8px;     /* ✅ jarak antara baris */
 }
 
 /* Lencana Status */
@@ -127,7 +131,7 @@
     font-weight: 700;
     padding: 2px 8px;
     border-radius: 6px;
-    margin-right: 6px;
+    margin-right: 8px;
     text-transform: uppercase;
 }
 
