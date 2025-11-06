@@ -86,9 +86,10 @@
 
 /* Kad Drone */
 .drone-card {
-    background-color: var(--dark-bg);
+    background-color: rgba(16, 17, 19, 0.35);
     border-radius: 8px;
     padding: 20px;
+    backdrop-filter: blur(6px);
     transition: transform 0.2s, box-shadow 0.2s;
     border-left: 5px solid var(--primary-color);
 }
@@ -110,12 +111,26 @@
     scrollbar-width: thin;
 }
 #status-container::-webkit-scrollbar {
-    width: 10px;
+    width: 20px;
 }
 #status-container::-webkit-scrollbar-thumb {
-    background: rgba(1, 255, 221, 0.6);
+    background: rgba(255, 192, 1, 0.6);
     border-radius: 10px;
 }
+
+.label-badge {
+    display: inline-block;
+    background: rgba(1, 255, 170, 0.575);
+    border: 1px solid rgb(0, 0, 0);
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 6px;
+    margin-right: 6px;
+    text-transform: uppercase;
+}
+
 .status-pending { background-color: #f59e0b; }
 .status-pulang { background-color: #10b981; }
 .status-rosak { background-color: #ef4444; }
