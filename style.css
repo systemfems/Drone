@@ -7,8 +7,8 @@
 /* Latar belakang utama */
 #app-container {
     font-family: 'Inter', sans-serif;
-    background-color: #1a1a1a00;
-    background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
+    background-color: #ffffff00;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.144), rgba(rgba(0, 0, 0, 0.144))),
         url('drone 2.webp');
     background-size: cover;
     background-position: center;
@@ -20,41 +20,22 @@
     width: 100%;
     margin: auto;
     color: white;
-    background-color: #74747459;
+    background-color: #1e1f2360;
     padding: 30px;
     border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.308);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(5px);
-    border: 1px solid rgba(0, 0, 0, 0.103);
+    border: 1px solid rgba(255, 192, 1, 0.2);
 }
 
-/* Background Tab */
+/* Navigasi */
 .nav-btn {
-    background: #74747459;
-    border: 1px solid rgba(0, 0, 0, 0.103);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.308);
-    padding: 10px 20px;
-    color: #fff;
-    margin: 0 5px;
-    border-radius: 0.75rem 0.75rem 0 0;
+    padding: 12px 16px;
+    font-weight: 600;
     font-size: 1.125rem;
-    font-weight: 700;
-    transition: all 0.2s ease-in-out;
+    border-radius: 0.75rem 0.75rem 0 0;
     cursor: pointer;
-}
-
-.nav-btn:hover {
-    background: rgba(255, 255, 255, 0.15);
-    border-color: #ffc001;
-    color: #ffc001;
-}
-
-/* ✅ tab yang sedang aktif */
-.nav-btn.active {
-    background: #ffc001;
-    color: #000;
-    border-color: #ffc001;
-    box-shadow: 0 0 15px rgba(255, 192, 1, 0.4);
+    transition: all 0.2s ease-in-out;
 }
 
 /* Tabs */
@@ -153,6 +134,32 @@
     margin-right: 8px;
     text-transform: uppercase;
 }
+
+.nav-btn {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 10px 20px;
+    color: #fff;
+    margin: 0 5px;
+    border-radius: 8px;
+    font-weight: 700;
+    transition: 0.2s;
+}
+
+.nav-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: #ffc001;
+    color: #ffc001;
+}
+
+/* ✅ tab yang sedang aktif */
+.nav-btn.active {
+    background: #ffc001;
+    color: #000;
+    border-color: #ffc001;
+    box-shadow: 0 0 15px rgba(255, 192, 1, 0.4);
+}
+
 
 .status-pending { background-color: #f59e0b; }
 .status-pulang { background-color: #10b981; }
