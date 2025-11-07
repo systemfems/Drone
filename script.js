@@ -1,7 +1,8 @@
 // ✅ Gantikan URL ini dengan URL Web App Apps Script anda
 const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxWTz3fY2LkAR8mzFvn2d25GhaExBFjhLQ2nXLMwv2c-lC6ULt70vwtgS1Zqz4xN-Gl/exec";
-
+                          
 document.addEventListener('DOMContentLoaded', () => {
+
   const bookingForm = document.getElementById('booking-form');
   const messageEl = document.getElementById('booking-message');
   const submitBtn = bookingForm.querySelector('.submit-btn');
@@ -91,14 +92,20 @@ document.addEventListener('DOMContentLoaded', () => {
         card.className = "drone-card";
 
         card.innerHTML = `
-          <p class="text-xl font-bold"><span class="label-badge">Nama Peminjam:</span>${item.NamaPeminjam}</p>
-          <p class="text-gray-300 text-sm"><span class="label-badge">Drone Model:</span> ${item.DroneModel}</p>
-          <p class="text-gray-300 text-sm"><span class="label-badge">Site (Peminjam):</span> ${item.LokasiKerja}</p>
-          <p class="text-gray-300 text-sm"><span class="label-badge">Tujuan Penerbangan:</span> ${item.TujuanMisi}</p>
-          <p class="text-gray-300 text-sm"><span class="label-badge">Destinasi Penerbangan:</span> ${item.Destinasi}</p>
+          <p class="text-xl font-bold">
+              <span class="label-badge">Nama Peminjam :</span>${item.NamaPeminjam}
+          </p>
           <p class="text-gray-300 text-sm">
-              <span class="label-badge">Tarikh Ambil:</span> ${item.TarikhAmbil} •
-              <span class="label-badge">Masa Ambil:</span> ${item.MasaAmbil}
+              <span class="label-badge">Drone Model :</span> ${item.DroneModel} •
+              <span class="label-badge">Site (Peminjam) :</span> ${item.SitePeminjam} •
+              <span class="label-badge">Lokasi Penerbangan :</span> ${item.LokasiPenerbangan}
+          </p>
+          <p class="text-gray-300 text-sm">
+              <span class="label-badge">Tarikh Ambil :</span> ${item.TarikhAmbil} •
+              <span class="label-badge">Masa Ambil :</span> ${item.MasaAmbil}
+          </p>
+          <p class="text-gray-300 text-sm">
+              <span class="label-badge">Tujuan Penerbangan :</span> ${item.TujuanPenerbangan}
           </p>
           <span class="status-badge status-pending mt-2 inline-block">Pinjam</span>
         `;
