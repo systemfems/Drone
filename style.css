@@ -8,14 +8,10 @@
 #app-container {
     font-family: 'Inter', sans-serif;
     background-color: #ffffff00;
-    background-image: linear-gradient(
-        rgba(0, 0, 0, 0.4), 
-        rgba(0, 0, 0, 0.4)
-    ),
-    url('drone 2.webp');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.144), rgba(0, 0, 0, 0.144)),
+        url('drone 2.webp');
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
 }
 
 /* Kad & Borang */
@@ -140,8 +136,8 @@
 }
 
 .nav-btn {
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: #1e1f2360;
+    border: 1px solid rgb(0, 0, 0);
     padding: 10px 20px;
     color: #fff;
     margin: 0 5px;
@@ -151,7 +147,7 @@
 }
 
 .nav-btn:hover {
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(0, 0, 0, 0.301);
     border-color: #ffc001;
     color: #ffc001;
 }
